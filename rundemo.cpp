@@ -103,10 +103,11 @@ int main ( int argc , char** argv)
 
         // create styles
         std::cout << "creating expression rules" << std::endl;
-        std::string theStatesExp1, theStatesExp2, theStatesExp3;
-        int count = round(theStates.size()/3.0);
+        std::string theStatesExp1, theStatesExp2, theStatesExp3, theStatesExp4, theStatesExp5, theStatesExp6, theStatesExp7, theStatesExp8;
+        int count = round(theStates.size()/7.0);
         int i = 0;
         for (auto state : theStates) {
+           
             if (i < count ) {
                 theStatesExp1 += "[STUSPS] = " + state;
                 if (i != count-1)
@@ -115,10 +116,35 @@ int main ( int argc , char** argv)
                 theStatesExp2 += "[STUSPS] = " + state;
                 if (i != 2*count-1)
                     theStatesExp2 += " or ";
-            } else {
-                 theStatesExp3 += "[STUSPS] = " + state;
-                if (i != 3*count-1 && i !=theStates.size()-1)
+            
+            }else if (i < count*3) {
+                theStatesExp3 += "[STUSPS] = " + state;
+                if (i != 3*count-1)
                     theStatesExp3 += " or ";
+            
+            }else if (i < count*4) {
+                theStatesExp4 += "[STUSPS] = " + state;
+                if (i != 4*count-1)
+                    theStatesExp4 += " or ";
+            
+            }else if (i < count*5) {
+                theStatesExp5 += "[STUSPS] = " + state;
+                if (i != 5*count-1)
+                    theStatesExp5 += " or ";
+            
+            }else if (i < count*6) {
+                theStatesExp6 += "[STUSPS] = " + state;
+                if (i != 6*count-1)
+                    theStatesExp6 += " or ";
+            
+            }else if (i < count*7) {
+                theStatesExp7 += "[STUSPS] = " + state;
+                if (i != 7*count-1)
+                    theStatesExp7 += " or ";
+            } else {
+                theStatesExp8 += "[STUSPS] = " + state;
+                if (i != 8*count-1 && i !=theStates.size()-1)
+                    theStatesExp8 += " or ";
             }
             i++;
         }
@@ -126,48 +152,110 @@ int main ( int argc , char** argv)
         std::cout << "the expression 1: " << theStatesExp1 << std::endl;
         std::cout << "the expression 2: " << theStatesExp2 << std::endl;
         std::cout << "the expression 3: " << theStatesExp3 << std::endl;
-
+        std::cout << "the expression 4: " << theStatesExp4 << std::endl;
+        std::cout << "the expression 5: " << theStatesExp5 << std::endl;
+        std::cout << "the expression 6: " << theStatesExp6 << std::endl;
+        std::cout << "the expression 7: " << theStatesExp7 << std::endl;
+        std::cout << "the expression 8: " << theStatesExp8 << std::endl;
         std::cout << " creating styles ... \n";
-
+    
         // States (polygon)
-        feature_type_style topThird_style;
+        feature_type_style topEighth_style;
         {
-            rule topThird_rule;
-            topThird_rule.set_filter(parse_expression(theStatesExp1)); 
+            rule topEighth_rule;
+            topEighth_rule.set_filter(parse_expression(theStatesExp1)); 
             {
                 polygon_symbolizer poly_sym;
                 put(poly_sym, keys::fill, color(235, 91, 101));
-                topThird_rule.append(std::move(poly_sym));
+                topEighth_rule.append(std::move(poly_sym));
             }
-            topThird_style.add_rule(std::move(topThird_rule));
+            topEighth_style.add_rule(std::move(topEighth_rule));
         }
-        m.insert_style("topThird", std::move(topThird_style));
-
-        feature_type_style midThird_style;
+        m.insert_style("topEighth", std::move(topEighth_style));
+        feature_type_style secondEighth_style;
         {
-            rule midThird_rule;
-            midThird_rule.set_filter(parse_expression(theStatesExp2)); 
+            rule secondEighth_rule;
+            secondEighth_rule.set_filter(parse_expression(theStatesExp2)); 
+            {
+                polygon_symbolizer poly_sym;
+                put(poly_sym, keys::fill, color(245, 134, 91));
+                secondEighth_rule.append(std::move(poly_sym));
+            }
+            secondEighth_style.add_rule(std::move(secondEighth_rule));
+        }
+        m.insert_style("secondEighth", std::move(secondEighth_style));
+        feature_type_style thirdEighth_style;
+        {
+            rule thirdEighth_rule;
+            thirdEighth_rule.set_filter(parse_expression(theStatesExp3)); 
+            {
+                polygon_symbolizer poly_sym;
+                put(poly_sym, keys::fill, color(223, 170, 94));
+                thirdEighth_rule.append(std::move(poly_sym));
+            }
+            thirdEighth_style.add_rule(std::move(thirdEighth_rule));
+        }
+        m.insert_style("thirdEighth", std::move(thirdEighth_style)); 
+         feature_type_style fourthEighth_style;
+        {
+            rule fourthEighth_rule;
+            fourthEighth_rule.set_filter(parse_expression(theStatesExp4)); 
+            {
+                polygon_symbolizer poly_sym;
+                put(poly_sym, keys::fill, color(235, 235, 75));
+                fourthEighth_rule.append(std::move(poly_sym));
+            }
+            fourthEighth_style.add_rule(std::move(fourthEighth_rule));
+        }
+        m.insert_style("fourthEighth", std::move(fourthEighth_style)); 
+         feature_type_style fifthEighth_style;
+        {
+            rule fifthEighth_rule;
+            fifthEighth_rule.set_filter(parse_expression(theStatesExp5)); 
             {
                 polygon_symbolizer poly_sym;
                 put(poly_sym, keys::fill, color(245, 213, 91));
-                midThird_rule.append(std::move(poly_sym));
+                fifthEighth_rule.append(std::move(poly_sym));
             }
-            midThird_style.add_rule(std::move(midThird_rule));
+            fifthEighth_style.add_rule(std::move(fifthEighth_rule));
         }
-        m.insert_style("midThird", std::move(midThird_style));
-
-        feature_type_style botThird_style;
+        m.insert_style("fifthEighth", std::move(fifthEighth_style));
+         feature_type_style sixthEighth_style;
         {
-            rule botThird_rule;
-            botThird_rule.set_filter(parse_expression(theStatesExp3)); 
+            rule sixthEighth_rule;
+            sixthEighth_rule.set_filter(parse_expression(theStatesExp6)); 
+            {
+                polygon_symbolizer poly_sym;
+                put(poly_sym, keys::fill, color(128, 235, 96));
+                sixthEighth_rule.append(std::move(poly_sym));
+            }
+            sixthEighth_style.add_rule(std::move(sixthEighth_rule));
+        }
+        m.insert_style("sixthEighth", std::move(sixthEighth_style));
+         feature_type_style seventhEighth_style;
+        {
+            rule seventhEighth_rule;
+            seventhEighth_rule.set_filter(parse_expression(theStatesExp7)); 
+            {
+                polygon_symbolizer poly_sym;
+                put(poly_sym, keys::fill, color(95, 245, 155));
+                seventhEighth_rule.append(std::move(poly_sym));
+            }
+            seventhEighth_style.add_rule(std::move(seventhEighth_rule));
+        }
+        m.insert_style("seventhEighth", std::move(seventhEighth_style));
+        feature_type_style botEighth_style;
+        {
+            rule botEighth_rule;
+            botEighth_rule.set_filter(parse_expression(theStatesExp8)); 
             {
                 polygon_symbolizer poly_sym;
                 put(poly_sym, keys::fill, color(91, 80, 235));
-                botThird_rule.append(std::move(poly_sym));
+                botEighth_rule.append(std::move(poly_sym));
             }
-            botThird_style.add_rule(std::move(botThird_rule));
+            botEighth_style.add_rule(std::move(botEighth_rule));
         }
-        m.insert_style("botThird", std::move(botThird_style));
+        m.insert_style("botEighth", std::move(botEighth_style));
 
 
         std::cout << " added styles... \n";
@@ -200,9 +288,14 @@ int main ( int argc , char** argv)
 
             layer lyr("DataProjMap");
             lyr.set_datasource(datasource_cache::instance().create(p));
-            lyr.add_style("topThird");
-            lyr.add_style("midThird");
-            lyr.add_style("botThird");
+            lyr.add_style("topEighth");
+            lyr.add_style("secondEighth");
+            lyr.add_style("thirdEighth");
+            lyr.add_style("fourthEighth");
+            lyr.add_style("fifthEighth");
+            lyr.add_style("sixthEighth");
+            lyr.add_style("seventhEighth");
+            lyr.add_style("botEighth");
             lyr.set_srs(srs_lcc);
      
             m.add_layer(lyr);
