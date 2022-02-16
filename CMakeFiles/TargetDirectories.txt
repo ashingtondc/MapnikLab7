@@ -1,0 +1,3 @@
+/Users/zwood/courses/490+496/programs/mapnik/demo/490-test/CMakeFiles/mapnik-demo.dir
+/Users/zwood/courses/490+496/programs/mapnik/demo/490-test/CMakeFiles/edit_cache.dir
+/Users/zwood/courses/490+496/programs/mapnik/demo/490-test/CMakeFiles/rebuild_cache.dir
