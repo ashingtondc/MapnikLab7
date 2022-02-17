@@ -1,3 +1,5 @@
+/* Ash Parasa and Emma Sauerborn */
+
 /*****************************************************************************
  * Example code modified from Mapnik rundemo.cpp (r727, license LGPL).
  * Renders the State of California using USGS state boundaries data.
