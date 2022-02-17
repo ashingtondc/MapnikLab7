@@ -269,7 +269,7 @@ int main ( int argc , char** argv)
             {
                 line_symbolizer line_sym;
                 put(line_sym,keys::stroke,color(0,0,0));
-                put(line_sym,keys::stroke_width,1.0);
+                put(line_sym,keys::stroke_width,0.5);
                 put(line_sym,keys::stroke_linecap,ROUND_CAP);
                 put(line_sym,keys::stroke_linejoin,ROUND_JOIN);
                 r.append(std::move(line_sym));
