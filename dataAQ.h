@@ -60,7 +60,6 @@ class dataAQ {
     //this quarter restriction
     private:
        std::map<string, shared_ptr<demogState> > allStateData;
-
        std::map<string, shared_ptr<psCombo> > allStatePoliceData;
 
 };
