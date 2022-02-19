@@ -39,6 +39,8 @@ std::string stripCounty(string inWord) {
     string compareS = "County";
     string compareP = "Parish";
     string compareC = "city";
+    string compareB = "Borough";
+    
     /* some names include the word 'county' - strip */
     std::string::size_type i = inWord.find(compareS);
     if (i != std::string::npos) {
@@ -51,6 +53,10 @@ std::string stripCounty(string inWord) {
     i = inWord.find(compareC);
     if (i != std::string::npos) {
         inWord.erase(i-1, compareS.length()+1);
+    }
+    i = inWord.find(compareB);
+    if (i != std::string::npos) {
+        inWord.erase(i-1, compareB.length()+1);
     }
     //apostrophe issue - strip will result in lack of rep - better solution?
     string symbol = "\'";
